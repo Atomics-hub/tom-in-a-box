@@ -1,0 +1,10 @@
+node_modules/
+dist/
+audit-results/
+benchmark-results/
+private-benchmarks/
+tmp-smoke*/
+.*.bun-build
+.DS_Store
+.tib/
+*.log

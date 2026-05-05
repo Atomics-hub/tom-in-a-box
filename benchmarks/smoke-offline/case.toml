@@ -1,0 +1,8 @@
+id = "smoke-offline"
+name = "Offline harness smoke case"
+repo = "repo"
+claim = "claim.md"
+focus = "authz"
+expected_status = "NEEDS_MANUAL_REVIEW"
+tags = ["smoke", "offline"]
+notes = "This case is intentionally designed to pass in --offline mode. It proves the benchmark harness, artifact writer, and verdict comparator work without model calls."
