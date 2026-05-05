@@ -1,0 +1,30 @@
+<svg width="980" height="610" viewBox="0 0 980 610" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">tom-in-a-box offline demo terminal output</title>
+  <desc id="desc">A terminal screenshot showing the no-spend dry run and offline demo output for tib.</desc>
+  <rect width="980" height="610" rx="12" fill="#111827"/>
+  <rect x="1" y="1" width="978" height="608" rx="11" stroke="#374151"/>
+  <rect x="0" y="0" width="980" height="42" rx="12" fill="#1f2937"/>
+  <circle cx="24" cy="21" r="6" fill="#ef4444"/>
+  <circle cx="45" cy="21" r="6" fill="#f59e0b"/>
+  <circle cx="66" cy="21" r="6" fill="#22c55e"/>
+  <text x="490" y="27" text-anchor="middle" fill="#d1d5db" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">tib public demo</text>
+
+  <text x="34" y="84" fill="#93c5fd" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">$ bun run src/cli.ts verify examples/vulnerable-notes-app \</text>
+  <text x="34" y="112" fill="#93c5fd" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">  --claim examples/vulnerable-notes-app/claim.md \</text>
+  <text x="34" y="140" fill="#93c5fd" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">  --focus authz --dry-run</text>
+
+  <text x="34" y="190" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Mapped 2 files and 6 symbols.</text>
+  <text x="34" y="218" fill="#86efac" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Dry run complete. No model calls were made.</text>
+  <text x="34" y="246" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Planned model calls including malformed-output retries: 12</text>
+  <text x="34" y="274" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Approximate input tokens: 6756</text>
+  <text x="34" y="302" fill="#fbbf24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Conservative max-cost estimate: $2.13</text>
+  <text x="34" y="330" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Candidate slots: 1</text>
+  <text x="34" y="358" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Verification agents per candidate: 6</text>
+
+  <line x1="34" y1="398" x2="946" y2="398" stroke="#374151"/>
+  <text x="34" y="438" fill="#93c5fd" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">$ bun run src/cli.ts bench benchmarks --offline</text>
+  <text x="34" y="486" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Benchmark mode: offline</text>
+  <text x="34" y="514" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Cases: 1</text>
+  <text x="34" y="542" fill="#86efac" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Passed: 1</text>
+  <text x="34" y="570" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Public alpha bar: NOT YET (offline smoke only)</text>
+</svg>

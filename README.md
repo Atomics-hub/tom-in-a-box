@@ -1,5 +1,9 @@
 # tom-in-a-box
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Bun](https://img.shields.io/badge/runtime-Bun%201.3%2B-black.svg)](https://bun.sh)
+[![Version](https://img.shields.io/badge/version-v0.1.0--alpha-blue.svg)](https://github.com/Atomics-hub/tom-in-a-box/releases/tag/v0.1.0-alpha)
+
 `tib` is a verification-first source-code security audit CLI. It helps a solo researcher turn a repo and a vulnerability claim into a checked, ranked result by running independent agents whose job is to confirm, disprove, duplicate-check, and format the finding before submission.
 
 The short version:
@@ -19,6 +23,10 @@ Private-corpus public-alpha bar:
 - 0 known-negative `SUBMIT` verdicts
 
 The private corpus is not published because it may contain disclosure-sensitive research and source snapshots. The public repo includes the methodology, harness, no-spend demo, and aggregate proof ledger.
+
+## Demo
+
+![No-spend tib demo terminal output](docs/assets/demo-screenshot.svg)
 
 ## Status
 
