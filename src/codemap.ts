@@ -1,3 +1,4 @@
+import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 import type { CodeFileSummary, CodeMap, CodeSymbol } from "./types";
 import { extensionLanguage, truncateText } from "./utils";
@@ -130,15 +131,25 @@ async function listTrackedFiles(repoRoot: string): Promise<string[]> {
     return rgFiles.split(/\r?\n/).filter(Boolean);
   }
 
-  return [];
+  return walkFiles(repoRoot);
 }
 
 async function runCommand(args: string[], cwd: string, allowFailure: boolean): Promise<string> {
-  const proc = Bun.spawn(args, {
-    cwd,
-    stdout: "pipe",
-    stderr: "pipe"
-  });
+  let proc: {
+    stdout: ReadableStream<Uint8Array>;
+    stderr: ReadableStream<Uint8Array>;
+    exited: Promise<number>;
+  };
+  try {
+    proc = Bun.spawn(args, {
+      cwd,
+      stdout: "pipe",
+      stderr: "pipe"
+    }) as typeof proc;
+  } catch (error) {
+    if (allowFailure) return "";
+    throw error;
+  }
   const [stdout, stderr, code] = await Promise.all([
     new Response(proc.stdout).text(),
     new Response(proc.stderr).text(),
@@ -148,6 +159,31 @@ async function runCommand(args: string[], cwd: string, allowFailure: boolean): P
     throw new Error(`${args.join(" ")} failed: ${stderr.trim() || stdout.trim()}`);
   }
   return stdout;
+}
+
+async function walkFiles(root: string, directory = "", files: string[] = []): Promise<string[]> {
+  const absoluteDirectory = join(root, directory);
+  let entries: Array<{
+    name: string;
+    isDirectory(): boolean;
+    isFile(): boolean;
+  }>;
+  try {
+    entries = await readdir(absoluteDirectory, { withFileTypes: true });
+  } catch {
+    return files;
+  }
+
+  for (const entry of entries) {
+    const relativePath = directory ? `${directory}/${entry.name}` : entry.name;
+    if (!shouldIncludePath(relativePath)) continue;
+    if (entry.isDirectory()) {
+      await walkFiles(root, relativePath, files);
+    } else if (entry.isFile()) {
+      files.push(relativePath);
+    }
+  }
+  return files;
 }
 
 function shouldIncludePath(path: string): boolean {
